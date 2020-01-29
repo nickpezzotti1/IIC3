@@ -2,10 +2,10 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from code.archs.cluster.vgg import VGGNet
-from code.archs.segmentation.net10a import SegmentationNet10aTrunk, \
+from code1.archs.cluster.vgg import VGGNet
+from code1.archs.segmentation.net10a import SegmentationNet10aTrunk, \
   SegmentationNet10a
-from code.utils.segmentation.baselines.general import get_patches
+from code1.utils.segmentation.baselines.general import get_patches
 
 __all__ = ["SegmentationNet10aIsola"]
 
