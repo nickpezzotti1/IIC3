@@ -95,4 +95,4 @@ class ClusterNet6cTwoHead(VGGNet):
     else:
       assert (False)
 
-    return x
+    return x[0]
