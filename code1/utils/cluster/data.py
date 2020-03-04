@@ -5,10 +5,10 @@ import torch
 import torchvision
 from torch.utils.data import ConcatDataset
 
-from code.datasets.clustering.truncated_dataset import TruncatedDataset
-from code.utils.cluster.transforms import sobel_make_transforms, \
+from code1.datasets.clustering.truncated_dataset import TruncatedDataset
+from code1.utils.cluster.transforms import sobel_make_transforms, \
   greyscale_make_transforms
-from code.utils.semisup.dataset import TenCropAndFinish
+from code1.utils.semisup.dataset import TenCropAndFinish
 from .general import reorder_train_deterministic
 
 
@@ -273,7 +273,8 @@ def _create_dataloaders(config, dataset_class, tf1, tf2,
         root=config.dataset_root,
         transform=tf1,
         train=train_partition,
-        target_transform=target_transform)
+        target_transform=target_transform,
+        download=True)
 
     if hasattr(config, "mix_train"):
       if config.mix_train and (train_partition == "train+unlabeled"):

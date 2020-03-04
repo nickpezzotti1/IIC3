@@ -44,8 +44,7 @@ def _clustering_get_data(config, net, dataloader, sobel=False,
 
     with torch.no_grad():
       x_outs = net(imgs)
-
-    assert (x_outs[0].shape[1] == config.output_k)
+  
     assert (len(x_outs[0].shape) == 2)
 
     num_test_curr = flat_targets.shape[0]
