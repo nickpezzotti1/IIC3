@@ -69,6 +69,11 @@ class ClusterNet6cTwoHead(VGGNet):
 
     self.head_B = ClusterNet6cTwoHeadHead(config, output_k=config.output_k_B,
                                           semisup=semisup)
+    # Configure the best head
+    config_dict = config.__dict__
+    number_of_epochs = len(config_dict['epoch_acc'])
+
+    self.best_head = config.__dict__['epoch_stats'][number_of_epochs - 1]["best_train_sub_head"]
 
     self._initialize_weights()
 
@@ -95,4 +100,4 @@ class ClusterNet6cTwoHead(VGGNet):
     else:
       assert (False)
 
-    return x[0]
+    return x[self.best_head]
